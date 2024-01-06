@@ -17,7 +17,6 @@ const BookForm = () => {
         id: uuidv4(),
       };
       dispath(addBook(book));
-      console.log(title, author);
       setTitle("");
       setAuthor("");
     }
