@@ -14,6 +14,7 @@ const BookForm = () => {
     const randomBook = booksData[random];
     const result = {
       ...randomBook,
+      isFavorite: false,
       id: uuidv4(),
     };
     dispath(addBook(result));
@@ -25,6 +26,7 @@ const BookForm = () => {
       const book = {
         title,
         author,
+        isFavorite: false,
         id: uuidv4(),
       };
       dispath(addBook(book));
