@@ -1,20 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = "";
-
 const errorSlice = createSlice({
   name: "error",
-  initialState,
+  initialState: initialState,
   reducers: {
-    setError: (action) => {
+    setErrorMsg: (state, action) => {
       return action.payload;
     },
-    clearError: () => {
+    clearError: (state) => {
       return initialState;
     },
   },
 });
 
-export const { setError, clearError } = errorSlice.actions;
+export const { setErrorMsg, clearError } = errorSlice.actions;
+
 export const selectErrorMessage = (state) => state.error;
+
 export default errorSlice.reducer;
