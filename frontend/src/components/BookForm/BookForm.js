@@ -3,7 +3,7 @@ import "./BookForm.css";
 import { useDispatch } from "react-redux";
 import booksData from "../../data/books.json";
 import createBookWithID from "../../utils/createBookWithId";
-import { addBook, thunkFunction } from "../../redux/slice/bookSlice";
+import { addBook, fetchBook } from "../../redux/slice/bookSlice";
 const BookForm = () => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
@@ -25,8 +25,8 @@ const BookForm = () => {
     }
   };
 
-  const handleOnRandomBookAPI = async () => {
-    dispatch(thunkFunction);
+  const handleOnRandomBookAPI = () => {
+    dispatch(fetchBook());
   };
   return (
     <div className="app-block book-form">
