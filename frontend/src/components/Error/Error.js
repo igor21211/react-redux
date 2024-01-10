@@ -8,7 +8,11 @@ const Error = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     if (errorMessage) {
-      toast.info(errorMessage);
+      if (errorMessage.includes("Error")) {
+        toast.error(errorMessage);
+      } else {
+        toast.info(errorMessage);
+      }
       dispatch(clearError());
     }
   }, [errorMessage, dispatch]);
