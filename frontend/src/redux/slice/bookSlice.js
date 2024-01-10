@@ -15,7 +15,7 @@ export const fetchBook = createAsyncThunk(
       return res.data;
     } catch (error) {
       thunkAPI.dispatch(setErrorMsg(error.message));
-      throw error;
+      throw thunkAPI.rejectWithValue(error);
     }
   }
 );
@@ -47,7 +47,7 @@ const booksSlice = createSlice({
     });
     builder.addCase(fetchBook.fulfilled, (state, action) => {
       state.isLoadingByApi = false;
-      if (action.payload.title && action.payload.author) {
+      if (action?.payload?.title && action?.payload?.author) {
         state.books.push(createBookWithID(action.payload, "API"));
       }
     });
